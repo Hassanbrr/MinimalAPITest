@@ -5,13 +5,13 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Aplication.Abstractions
+namespace Application.Abstractions
 {
     public interface IPostRepository
     {
-        Task<ICollection<Post>> GetPostWithComments();
-        Task<Post> GetPostWithComments(int postId);
-        Task<Post> CreatePost(Post ToCreate);
+        Task<ICollection<Post>> GetAllPosts();
+        Task<Post> GetPostById(int postId);
+        Task<Post> CreatePost(Post toCreate);
         Task<Post> UpdatePost(string updateContent,int postId  );
         Task DeletePost(int postId);
     }
