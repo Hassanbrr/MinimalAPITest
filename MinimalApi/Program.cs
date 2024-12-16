@@ -26,6 +26,11 @@ builder.Services.AddSwaggerGen();
 var app = builder.Build(); 
 app.UseHttpsRedirection();
 
+if (app.Environment.IsDevelopment())
+{
+    app.UseSwagger();
+    app.UseSwaggerUI();
+}
 app.MapGet("/api/posts/{id}", async (IMediator mediator, int id) =>
 {
     var getPost = new GetPostById { PostId = id };
